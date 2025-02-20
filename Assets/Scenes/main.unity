@@ -328,7 +328,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 4132
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -440,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988294688859493100, guid: ad57853883ad6c9478429c34ce017303, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 402.08
+      value: 402.07
       objectReference: {fileID: 0}
     - target: {fileID: 1988294688859493100, guid: ad57853883ad6c9478429c34ce017303, type: 3}
       propertyPath: m_LocalPosition.y
@@ -448,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988294688859493100, guid: ad57853883ad6c9478429c34ce017303, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 598.09
+      value: 597.83
       objectReference: {fileID: 0}
     - target: {fileID: 1988294688859493100, guid: ad57853883ad6c9478429c34ce017303, type: 3}
       propertyPath: m_LocalRotation.w
