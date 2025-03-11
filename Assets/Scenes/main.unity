@@ -328,7 +328,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 3996
+  m_ColorTemperature: 2607
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -599,10 +599,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 1.0867403, y: 0.49708846, z: 0.14865789, w: 1}
+      - m_Value: {x: 1.0867403, y: 0.6118647, z: 0.15362294, w: 1}
         m_Name: TonadoCoreColor
         m_Overridden: 1
-      - m_Value: {x: 1.0717734, y: 0.4940415, z: 0, w: 1}
+      - m_Value: {x: 1.4309018, y: 0.8531187, z: 0, w: 1}
         m_Name: TonadoLayer1Color
         m_Overridden: 1
     m_Uint:
