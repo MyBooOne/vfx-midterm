@@ -598,7 +598,13 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1.0867403, y: 0.49708846, z: 0.14865789, w: 1}
+        m_Name: TonadoCoreColor
+        m_Overridden: 1
+      - m_Value: {x: 1.0717734, y: 0.4940415, z: 0, w: 1}
+        m_Name: TonadoLayer1Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
