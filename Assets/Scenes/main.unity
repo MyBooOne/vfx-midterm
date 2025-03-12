@@ -119,6 +119,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &233004318
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.110960096
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.110960096
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.110960096
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 183.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -299.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.033084955
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5644838
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8216526
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07176685
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 8.933
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 181.546
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 69.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
+      propertyPath: m_Name
+      value: Spinosaurus Skeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 979066bc0fb8a884e9fe7f3759449c91, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -10464,3 +10533,4 @@ SceneRoots:
   - {fileID: 2004493970}
   - {fileID: 1865295737}
   - {fileID: 1156850567}
+  - {fileID: 233004318}
