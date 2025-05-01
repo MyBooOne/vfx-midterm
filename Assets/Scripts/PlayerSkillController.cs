@@ -88,6 +88,12 @@ public class PlayerSkillController : MonoBehaviour
         if (skill.currentVFX == null)
         {
             skill.currentVFX = Instantiate(skill.skillEffectPrefab, position, Quaternion.identity);
+
+            // ✅ กรณีสกิลเป็นโล่: ติดตามตัวผู้เล่น
+            if (skill.name.ToLower().Contains("shield") || skill.name.ToLower().Contains("bubble"))
+            {
+                skill.currentVFX.transform.SetParent(transform); // ติดกับ Player
+            }
         }
         else
         {
@@ -96,7 +102,6 @@ public class PlayerSkillController : MonoBehaviour
             skill.currentVFX.SetActive(true);
         }
 
-        // ส่งตำแหน่งเข้า VFX Graph ถ้ามี
         var vfx = skill.currentVFX.GetComponent<VisualEffect>();
         if (vfx != null && vfx.HasVector3("_TargetPosition"))
         {
@@ -107,6 +112,7 @@ public class PlayerSkillController : MonoBehaviour
 
         StartCoroutine(DeactivateSkillAfter(skill, skill.activeDuration));
     }
+
 
     IEnumerator DeactivateSkillAfter(Skill skill, float delay)
     {

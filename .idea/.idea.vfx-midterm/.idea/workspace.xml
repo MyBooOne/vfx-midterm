@@ -7,9 +7,23 @@
     <list default="true" id="51061a26-5eec-4457-9d9d-cb96b3bf168b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Ring.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Ring.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/RippleRT.renderTexture" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/RippleRT.renderTexture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core/Editor/SampleDependencyImportSystem/SampleDependencyImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph/Editor/Data/VFXData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph/Editor/Models/Blocks/Implementations/SetAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -120,7 +135,7 @@
       <workItem from="1741805929805" duration="1000" />
       <workItem from="1746020769701" duration="1201000" />
       <workItem from="1746025490124" duration="2706000" />
-      <workItem from="1746082206007" duration="3150000" />
+      <workItem from="1746082206007" duration="4348000" />
     </task>
     <servers />
   </component>

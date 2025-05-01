@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 941374984680767089}
   - component: {fileID: 739592086623337323}
   m_Layer: 0
-  m_Name: Skill2
+  m_Name: SpaceRiftSkillP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
