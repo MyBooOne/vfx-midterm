@@ -53,16 +53,13 @@ public class PlayerSkillController : MonoBehaviour
                     }
                     else
                     {
-                        Vector3 pos = transform.position;
-                        pos.y = 0.01f;
-                        TriggerSkill(skill, pos);
+                        TriggerSkill(skill, GetPlayerCenter());
                         skill.cooldownTimer = skill.cooldown;
                     }
                 }
             }
         }
 
-        // Confirm mouse-aimed skill
         foreach (var skill in skills)
         {
             if (skill.isPreparing && Input.GetMouseButtonDown(0))
@@ -87,13 +84,12 @@ public class PlayerSkillController : MonoBehaviour
     {
         if (skill.currentVFX == null)
         {
-            skill.currentVFX = Instantiate(skill.skillEffectPrefab, position, Quaternion.identity);
+            // ❗ ปรับตำแหน่งให้อยู่ที่ผู้เล่นเสมอ ไม่ว่า mouse หรือไม่
+            Vector3 spawnPosition = IsShieldSkill(skill) ? GetPlayerCenter() : position;
+            skill.currentVFX = Instantiate(skill.skillEffectPrefab, spawnPosition, Quaternion.identity);
 
-            // ✅ กรณีสกิลเป็นโล่: ติดตามตัวผู้เล่น
-            if (skill.name.ToLower().Contains("shield") || skill.name.ToLower().Contains("bubble"))
-            {
-                skill.currentVFX.transform.SetParent(transform); // ติดกับ Player
-            }
+            if (IsShieldSkill(skill))
+                StartCoroutine(UpdateShieldFollowPosition(skill));
         }
         else
         {
@@ -103,16 +99,41 @@ public class PlayerSkillController : MonoBehaviour
         }
 
         var vfx = skill.currentVFX.GetComponent<VisualEffect>();
-        if (vfx != null && vfx.HasVector3("_TargetPosition"))
+        if (vfx != null)
         {
-            vfx.SetVector3("_TargetPosition", position);
+            if (IsShieldSkill(skill))
+            {
+                if (vfx.HasVector3("ShieldFollowPosition"))
+                    vfx.SetVector3("ShieldFollowPosition", GetPlayerCenter());
+            }
+            else
+            {
+                if (vfx.HasVector3("TargetPosition"))
+                    vfx.SetVector3("TargetPosition", position);
+            }
         }
 
         Debug.Log($"Cast {skill.name} at {position}");
-
         StartCoroutine(DeactivateSkillAfter(skill, skill.activeDuration));
     }
 
+    IEnumerator UpdateShieldFollowPosition(Skill skill)
+    {
+        float timer = 0f;
+        var vfx = skill.currentVFX.GetComponent<VisualEffect>();
+        if (vfx == null) yield break;
+
+        yield return null; // ❗ รอให้ VFX พร้อมก่อน 1 เฟรม
+
+        while (timer < skill.activeDuration)
+        {
+            if (vfx.HasVector3("ShieldFollowPosition"))
+                vfx.SetVector3("ShieldFollowPosition", GetPlayerCenter());
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
 
     IEnumerator DeactivateSkillAfter(Skill skill, float delay)
     {
@@ -125,7 +146,6 @@ public class PlayerSkillController : MonoBehaviour
         }
     }
 
-
     Vector3? GetMouseCastPoint(float maxDistance)
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -136,13 +156,24 @@ public class PlayerSkillController : MonoBehaviour
             Vector3 point = hit.point;
             point.y = 0.01f;
 
-            float distance = Vector3.Distance(transform.position, point);
+            float distance = Vector3.Distance(GetPlayerCenter(), point);
             if (distance <= maxDistance)
-            {
                 return point;
-            }
         }
 
         return null;
+    }
+
+    Vector3 GetPlayerCenter()
+    {
+        Vector3 pos = transform.position;
+        pos.y = 1f; // ✅ ตามที่คุณกำหนดให้โล่ลอย
+        return pos;
+    }
+
+    bool IsShieldSkill(Skill skill)
+    {
+        string n = skill.name.ToLower();
+        return n.Contains("shield") || n.Contains("bubble");
     }
 }
