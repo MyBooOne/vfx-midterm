@@ -7,10 +7,9 @@
     <list default="true" id="51061a26-5eec-4457-9d9d-cb96b3bf168b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/2.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Ripple.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Ripple.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/RippleRT.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/RippleRT.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/2Ring.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/Skill2.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +120,7 @@
       <workItem from="1741805929805" duration="1000" />
       <workItem from="1746020769701" duration="1201000" />
       <workItem from="1746025490124" duration="2706000" />
+      <workItem from="1746082206007" duration="3150000" />
     </task>
     <servers />
   </component>
