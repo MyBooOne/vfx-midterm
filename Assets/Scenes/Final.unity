@@ -518,12 +518,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills:
-  - name: Stellar Shield
-    key: 101
-    skillEffectPrefab: {fileID: 4324326798284023879, guid: a4705b474207eed4582b9c80d23b11fb, type: 3}
-    cooldown: 15
-    useMouseDirection: 0
-    castDistance: 0
+  - name: Black Hole
+    key: 113
+    skillEffectPrefab: {fileID: 0}
+    cooldown: 11
+    useMouseDirection: 1
+    castDistance: 10
     activeDuration: 11
     currentVFX: {fileID: 0}
     isPreparing: 0
@@ -534,6 +534,16 @@ MonoBehaviour:
     cooldown: 11
     useMouseDirection: 1
     castDistance: 10
+    activeDuration: 11
+    currentVFX: {fileID: 0}
+    isPreparing: 0
+    cooldownTimer: 0
+  - name: Stellar Shield
+    key: 101
+    skillEffectPrefab: {fileID: 4324326798284023879, guid: a4705b474207eed4582b9c80d23b11fb, type: 3}
+    cooldown: 15
+    useMouseDirection: 0
+    castDistance: 0
     activeDuration: 11
     currentVFX: {fileID: 0}
     isPreparing: 0
