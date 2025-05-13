@@ -14,7 +14,6 @@ public class PlayerSkillController : MonoBehaviour
         public bool useMouseDirection = false;
         public float castDistance = 5f;
         public float activeDuration = 3f;
-        public AnimationClip animationClip;
 
         [HideInInspector] public GameObject currentVFX;
         [HideInInspector] public bool isPreparing;
@@ -44,6 +43,11 @@ public class PlayerSkillController : MonoBehaviour
                 {
                     skill.isPreparing = false;
                     Debug.Log($"Canceled {skill.name}");
+
+                    // ปิด bool เมื่อยกเลิก
+                    if (animator != null)
+                        animator.SetBool(skill.name, false);
+
                     return;
                 }
 
@@ -85,15 +89,14 @@ public class PlayerSkillController : MonoBehaviour
 
     void TriggerSkill(Skill skill, Vector3 position)
     {
-        if (animator != null && skill.animationClip != null)
+        // ✅ ใช้ SetBool เพื่อเปิดอนิเมชั่น
+        if (animator != null)
         {
-            animator.ResetTrigger("Skill1");
-            animator.ResetTrigger("Skill2");
-            animator.ResetTrigger("Skill3");
+            animator.SetBool(skill.name, true);  // เปิดอนิเมชั่น
 
-            animator.SetTrigger(skill.animationClip.name); // ✅ ชื่อ trigger = ชื่อคลิป
+            // ปิดอนิเมชั่นเมื่อครบเวลา
+            StartCoroutine(ResetAnimatorBool(skill.name, skill.activeDuration));
         }
-
 
         if (skill.currentVFX == null)
         {
@@ -103,11 +106,8 @@ public class PlayerSkillController : MonoBehaviour
             if (IsShieldSkill(skill))
                 StartCoroutine(UpdateShieldFollowPosition(skill));
 
-            // ✅ เพิ่มระบบ Scale 0→1→0 เฉพาะปุ่ม Q
             if (skill.key == KeyCode.Q)
-            {
                 StartCoroutine(AnimateSkillScale(skill));
-            }
         }
         else
         {
@@ -133,6 +133,13 @@ public class PlayerSkillController : MonoBehaviour
 
         Debug.Log($"Cast {skill.name} at {position}");
         StartCoroutine(DeactivateSkillAfter(skill, skill.activeDuration));
+    }
+
+    IEnumerator ResetAnimatorBool(string paramName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (animator != null)
+            animator.SetBool(paramName, false);  // ปิดอนิเมชั่น
     }
 
     IEnumerator UpdateShieldFollowPosition(Skill skill)
@@ -172,7 +179,6 @@ public class PlayerSkillController : MonoBehaviour
         Transform fxTransform = skill.currentVFX.transform;
         fxTransform.localScale = Vector3.zero;
 
-        // ขยายจาก 0 → 1
         while (timer < halfDuration)
         {
             float t = timer / halfDuration;
@@ -181,7 +187,6 @@ public class PlayerSkillController : MonoBehaviour
             yield return null;
         }
 
-        // หดจาก 1 → 0
         timer = 0f;
         while (timer < halfDuration)
         {

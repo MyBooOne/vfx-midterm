@@ -7,8 +7,16 @@
     <list default="true" id="51061a26-5eec-4457-9d9d-cb96b3bf168b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animation/PlayerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/PlayerController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GB8.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Magic Spell Casting.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Magic Spell Casting.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Standing 2H Cast Spell 01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Standing 2H Cast Spell 01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Standing 2H Magic Area Attack 02.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GB8@Standing 2H Magic Area Attack 02.fbx.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +130,7 @@
       <workItem from="1746025490124" duration="2706000" />
       <workItem from="1746082206007" duration="8170000" />
       <workItem from="1747114219701" duration="2242000" />
-      <workItem from="1747130225873" duration="3487000" />
+      <workItem from="1747130225873" duration="3495000" />
     </task>
     <servers />
   </component>
