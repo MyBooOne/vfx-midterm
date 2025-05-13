@@ -14,7 +14,7 @@ public class PlayerSkillController : MonoBehaviour
         public bool useMouseDirection = false;
         public float castDistance = 5f;
         public float activeDuration = 3f;
-        public AnimationClip animationClip; // ✅ ลาก AnimationClip ได้โดยตรง
+        public AnimationClip animationClip;
 
         [HideInInspector] public GameObject currentVFX;
         [HideInInspector] public bool isPreparing;
@@ -23,7 +23,7 @@ public class PlayerSkillController : MonoBehaviour
 
     public Skill[] skills;
     public LayerMask groundLayer;
-    public Animator animator; // ✅ Animator ของ Player
+    public Animator animator;
 
     private Camera cam;
 
@@ -85,7 +85,6 @@ public class PlayerSkillController : MonoBehaviour
 
     void TriggerSkill(Skill skill, Vector3 position)
     {
-        // ✅ เล่น Animation เฉพาะของสกิลนั้น
         if (animator != null && skill.animationClip != null)
         {
             animator.Play(skill.animationClip.name);
@@ -98,6 +97,12 @@ public class PlayerSkillController : MonoBehaviour
 
             if (IsShieldSkill(skill))
                 StartCoroutine(UpdateShieldFollowPosition(skill));
+
+            // ✅ เพิ่มระบบ Scale 0→1→0 เฉพาะปุ่ม Q
+            if (skill.key == KeyCode.Q)
+            {
+                StartCoroutine(AnimateSkillScale(skill));
+            }
         }
         else
         {
@@ -154,6 +159,36 @@ public class PlayerSkillController : MonoBehaviour
         }
     }
 
+    IEnumerator AnimateSkillScale(Skill skill)
+    {
+        float halfDuration = skill.activeDuration / 2f;
+        float timer = 0f;
+
+        Transform fxTransform = skill.currentVFX.transform;
+        fxTransform.localScale = Vector3.zero;
+
+        // ขยายจาก 0 → 1
+        while (timer < halfDuration)
+        {
+            float t = timer / halfDuration;
+            fxTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, t);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // หดจาก 1 → 0
+        timer = 0f;
+        while (timer < halfDuration)
+        {
+            float t = timer / halfDuration;
+            fxTransform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, t);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        fxTransform.localScale = Vector3.zero;
+    }
+
     Vector3? GetMouseCastPoint(float maxDistance)
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -175,7 +210,7 @@ public class PlayerSkillController : MonoBehaviour
     Vector3 GetPlayerCenter()
     {
         Vector3 pos = transform.position;
-        pos.y = 1f; // ✅ โล่ลอย
+        pos.y = 1f;
         return pos;
     }
 

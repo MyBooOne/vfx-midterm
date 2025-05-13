@@ -520,7 +520,7 @@ MonoBehaviour:
   skills:
   - name: Black Hole
     key: 113
-    skillEffectPrefab: {fileID: 6517275335308193120, guid: 5a12a8ab120adca4c8e2ff08be0e8425, type: 3}
+    skillEffectPrefab: {fileID: 4319240889074582910, guid: f0c4766fbd754dd4e87e22b123c81019, type: 3}
     cooldown: 11
     useMouseDirection: 1
     castDistance: 10
