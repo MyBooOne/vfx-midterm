@@ -87,8 +87,13 @@ public class PlayerSkillController : MonoBehaviour
     {
         if (animator != null && skill.animationClip != null)
         {
-            animator.Play(skill.animationClip.name);
+            animator.ResetTrigger("Skill1");
+            animator.ResetTrigger("Skill2");
+            animator.ResetTrigger("Skill3");
+
+            animator.SetTrigger(skill.animationClip.name); // ✅ ชื่อ trigger = ชื่อคลิป
         }
+
 
         if (skill.currentVFX == null)
         {
