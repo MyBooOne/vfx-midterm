@@ -14,6 +14,7 @@ public class PlayerSkillController : MonoBehaviour
         public bool useMouseDirection = false;
         public float castDistance = 5f;
         public float activeDuration = 3f;
+        public AnimationClip animationClip; // ✅ ลาก AnimationClip ได้โดยตรง
 
         [HideInInspector] public GameObject currentVFX;
         [HideInInspector] public bool isPreparing;
@@ -22,6 +23,8 @@ public class PlayerSkillController : MonoBehaviour
 
     public Skill[] skills;
     public LayerMask groundLayer;
+    public Animator animator; // ✅ Animator ของ Player
+
     private Camera cam;
 
     void Start()
@@ -82,9 +85,14 @@ public class PlayerSkillController : MonoBehaviour
 
     void TriggerSkill(Skill skill, Vector3 position)
     {
+        // ✅ เล่น Animation เฉพาะของสกิลนั้น
+        if (animator != null && skill.animationClip != null)
+        {
+            animator.Play(skill.animationClip.name);
+        }
+
         if (skill.currentVFX == null)
         {
-            // ❗ ปรับตำแหน่งให้อยู่ที่ผู้เล่นเสมอ ไม่ว่า mouse หรือไม่
             Vector3 spawnPosition = IsShieldSkill(skill) ? GetPlayerCenter() : position;
             skill.currentVFX = Instantiate(skill.skillEffectPrefab, spawnPosition, Quaternion.identity);
 
@@ -123,7 +131,7 @@ public class PlayerSkillController : MonoBehaviour
         var vfx = skill.currentVFX.GetComponent<VisualEffect>();
         if (vfx == null) yield break;
 
-        yield return null; // ❗ รอให้ VFX พร้อมก่อน 1 เฟรม
+        yield return null;
 
         while (timer < skill.activeDuration)
         {
@@ -167,7 +175,7 @@ public class PlayerSkillController : MonoBehaviour
     Vector3 GetPlayerCenter()
     {
         Vector3 pos = transform.position;
-        pos.y = 1f; // ✅ ตามที่คุณกำหนดให้โล่ลอย
+        pos.y = 1f; // ✅ โล่ลอย
         return pos;
     }
 

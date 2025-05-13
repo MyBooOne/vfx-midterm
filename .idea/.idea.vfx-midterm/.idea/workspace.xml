@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51061a26-5eec-4457-9d9d-cb96b3bf168b" name="Changes" comment="" />
+    <list default="true" id="51061a26-5eec-4457-9d9d-cb96b3bf168b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vfx-midterm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/3/vfxBH.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/3/vfxBH.vfx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,6 +121,7 @@
       <workItem from="1746020769701" duration="1201000" />
       <workItem from="1746025490124" duration="2706000" />
       <workItem from="1746082206007" duration="8170000" />
+      <workItem from="1747114219701" duration="2242000" />
     </task>
     <servers />
   </component>
