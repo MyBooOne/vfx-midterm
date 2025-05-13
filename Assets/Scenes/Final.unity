@@ -771,7 +771,7 @@ MonoBehaviour:
     useMouseDirection: 1
     castDistance: 10
     activeDuration: 11
-    animationClip: {fileID: 7400000, guid: 4b67f2c0ffe2d8347955f7a9b905ee23, type: 2}
+    animationClip: {fileID: -203655887218126122, guid: 41e7fb08bb5b5fe448a5b2a7471e2e36, type: 3}
     currentVFX: {fileID: 0}
     isPreparing: 0
     cooldownTimer: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
     useMouseDirection: 1
     castDistance: 10
     activeDuration: 11
-    animationClip: {fileID: 7400000, guid: 2192739847790824bb3d98685e1c4e8d, type: 2}
+    animationClip: {fileID: -203655887218126122, guid: b6a232b7a27cc1449868158b7b65102a, type: 3}
     currentVFX: {fileID: 0}
     isPreparing: 0
     cooldownTimer: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
     useMouseDirection: 0
     castDistance: 0
     activeDuration: 11
-    animationClip: {fileID: 7400000, guid: edd85ccedf2e7264c98bd75cca544fc2, type: 2}
+    animationClip: {fileID: -203655887218126122, guid: 27ebd19417f67a04d828fd955a09aea9, type: 3}
     currentVFX: {fileID: 0}
     isPreparing: 0
     cooldownTimer: 0
@@ -833,7 +833,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529781315}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 02062ad2aec72a247bf884d5b7916323, type: 3}
   m_Controller: {fileID: 9100000, guid: 9e7355461b74c5144b307c4108159ceb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
