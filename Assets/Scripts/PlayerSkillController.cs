@@ -14,6 +14,7 @@ public class PlayerSkillController : MonoBehaviour
         public bool useMouseDirection = false;
         public float castDistance = 5f;
         public float activeDuration = 3f;
+        public AnimationClip animationClip;
 
         [HideInInspector] public GameObject currentVFX;
         [HideInInspector] public bool isPreparing;
@@ -42,12 +43,7 @@ public class PlayerSkillController : MonoBehaviour
                 if (skill.isPreparing)
                 {
                     skill.isPreparing = false;
-                    Debug.Log($"Canceled {skill.name}");
-
-                    // ปิด bool เมื่อยกเลิก
-                    if (animator != null)
-                        animator.SetBool(skill.name, false);
-
+                    animator.SetBool(skill.name, false);
                     return;
                 }
 
@@ -56,7 +52,6 @@ public class PlayerSkillController : MonoBehaviour
                     if (skill.useMouseDirection)
                     {
                         skill.isPreparing = true;
-                        Debug.Log($"Preparing {skill.name}...");
                     }
                     else
                     {
@@ -77,11 +72,6 @@ public class PlayerSkillController : MonoBehaviour
                     TriggerSkill(skill, castPos.Value);
                     skill.cooldownTimer = skill.cooldown;
                 }
-                else
-                {
-                    Debug.Log("ตำแหน่งคลิกอยู่นอกระยะ");
-                }
-
                 skill.isPreparing = false;
             }
         }
@@ -89,13 +79,12 @@ public class PlayerSkillController : MonoBehaviour
 
     void TriggerSkill(Skill skill, Vector3 position)
     {
-        // ✅ ใช้ SetBool เพื่อเปิดอนิเมชั่น
-        if (animator != null)
-        {
-            animator.SetBool(skill.name, true);  // เปิดอนิเมชั่น
+        ResetAllAnimationBools();
 
-            // ปิดอนิเมชั่นเมื่อครบเวลา
-            StartCoroutine(ResetAnimatorBool(skill.name, skill.activeDuration));
+        if (animator != null && animator.HasParameter(skill.name))
+        {
+            animator.SetBool(skill.name, true);
+            StartCoroutine(ResetAnimatorBool(skill.name, skill.animationClip.length));
         }
 
         if (skill.currentVFX == null)
@@ -131,15 +120,27 @@ public class PlayerSkillController : MonoBehaviour
             }
         }
 
-        Debug.Log($"Cast {skill.name} at {position}");
         StartCoroutine(DeactivateSkillAfter(skill, skill.activeDuration));
+    }
+
+    void ResetAllAnimationBools()
+    {
+        foreach (var skill in skills)
+        {
+            if (animator.HasParameter(skill.name))
+            {
+                animator.SetBool(skill.name, false);
+            }
+        }
     }
 
     IEnumerator ResetAnimatorBool(string paramName, float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (animator != null)
-            animator.SetBool(paramName, false);  // ปิดอนิเมชั่น
+        if (animator != null && animator.HasParameter(paramName))
+        {
+            animator.SetBool(paramName, false);
+        }
     }
 
     IEnumerator UpdateShieldFollowPosition(Skill skill)
@@ -163,7 +164,6 @@ public class PlayerSkillController : MonoBehaviour
     IEnumerator DeactivateSkillAfter(Skill skill, float delay)
     {
         yield return new WaitForSeconds(delay);
-
         if (skill.currentVFX != null)
         {
             Destroy(skill.currentVFX);
@@ -203,17 +203,14 @@ public class PlayerSkillController : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit, 100f, groundLayer))
         {
             Vector3 point = hit.point;
             point.y = 0.01f;
-
             float distance = Vector3.Distance(GetPlayerCenter(), point);
             if (distance <= maxDistance)
                 return point;
         }
-
         return null;
     }
 
@@ -228,5 +225,16 @@ public class PlayerSkillController : MonoBehaviour
     {
         string n = skill.name.ToLower();
         return n.Contains("shield") || n.Contains("bubble");
+    }
+}
+
+// Extension สำหรับเช็คพารามิเตอร์ใน Animator
+public static class AnimatorExtensions
+{
+    public static bool HasParameter(this Animator animator, string name)
+    {
+        foreach (var p in animator.parameters)
+            if (p.name == name) return true;
+        return false;
     }
 }
