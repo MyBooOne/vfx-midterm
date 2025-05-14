@@ -171,6 +171,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GB8@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567160075332386439, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ccb357bb9f266343a967111e1976a11, type: 2}
+    - target: {fileID: 2567160075332386439, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ccb357bb9f266343a967111e1976a11, type: 2}
     - target: {fileID: 5866666021909216657, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}
       propertyPath: m_Controller
       value: 
@@ -343,10 +355,30 @@ MonoBehaviour:
     currentVFX: {fileID: 0}
     isPreparing: 0
     cooldownTimer: 0
+  - name: Into The Void
+    key: 120
+    skillEffectPrefab: {fileID: 8715550913224124270, guid: a4f2e5560e77a2a49a30d5ed5dc2212c, type: 3}
+    cooldown: 10
+    useMouseDirection: 0
+    castDistance: 0
+    activeDuration: 10
+    animationClip: {fileID: 7400000, guid: 09154fb77fb2c814d9887ff9e19262c3, type: 2}
+    currentVFX: {fileID: 0}
+    isPreparing: 0
+    cooldownTimer: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 706678061}
+  meshRenderer: {fileID: 476934499}
+  normalMaterial: {fileID: 2100000, guid: 3ccb357bb9f266343a967111e1976a11, type: 2}
+  passiveMaterial: {fileID: 2100000, guid: 34d4c86b19a6d9b41ad01b0e524bf01f, type: 2}
+  passiveDuration: 10
+--- !u!137 &476934499 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2567160075332386439, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}
+  m_PrefabInstance: {fileID: 345415379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &706678061 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: e3f713189e223c949b7d4ac1ed7b1e5d, type: 3}

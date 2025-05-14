@@ -9,6 +9,13 @@
       <change beforePath="$PROJECT_DIR$/Assets/Animation/PlayerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/PlayerController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Final.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerSkillController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/1/StellarShieldSD.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/1/StellarShieldSD.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/2/SpaceRiftSD.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/2/SpaceRiftSD.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/3/BHVFX.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/3/BHVFX.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/Passvie/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/Passvie/Materials/8f544efe14edc08ef494cae84b6e71b4.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/Passvie/Materials/8f544efe14edc08ef494cae84b6e71b4.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Skill/Passvie/PassiveSG.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Skill/Passvie/PassiveSG.shadergraph" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +130,7 @@
       <workItem from="1746082206007" duration="8170000" />
       <workItem from="1747114219701" duration="2242000" />
       <workItem from="1747130225873" duration="7580000" />
+      <workItem from="1747221158264" duration="609000" />
     </task>
     <servers />
   </component>

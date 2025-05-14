@@ -25,6 +25,13 @@ public class PlayerSkillController : MonoBehaviour
     public LayerMask groundLayer;
     public Animator animator;
 
+    // ✅ Passive form
+    public SkinnedMeshRenderer meshRenderer;
+    public Material normalMaterial;
+    public Material passiveMaterial;
+    public float passiveDuration = 5f;
+    private bool isInPassiveForm = false;
+
     private Camera cam;
 
     void Start()
@@ -34,45 +41,55 @@ public class PlayerSkillController : MonoBehaviour
 
     void Update()
     {
-        foreach (var skill in skills)
+        // สลับเป็นร่าง Passive เมื่อกด X
+        if (Input.GetKeyDown(KeyCode.X) && !isInPassiveForm)
         {
-            skill.cooldownTimer -= Time.deltaTime;
+            EnterPassiveForm();
+        }
 
-            if (Input.GetKeyDown(skill.key))
+        // ใช้งานสกิลตามปกติ (ยกเว้นตอนอยู่ใน Passive)
+        if (!isInPassiveForm)
+        {
+            foreach (var skill in skills)
             {
-                if (skill.isPreparing)
-                {
-                    skill.isPreparing = false;
-                    animator.SetBool(skill.name, false);
-                    return;
-                }
+                skill.cooldownTimer -= Time.deltaTime;
 
-                if (skill.cooldownTimer <= 0f)
+                if (Input.GetKeyDown(skill.key))
                 {
-                    if (skill.useMouseDirection)
+                    if (skill.isPreparing)
                     {
-                        skill.isPreparing = true;
+                        skill.isPreparing = false;
+                        animator.SetBool(skill.name, false);
+                        return;
                     }
-                    else
+
+                    if (skill.cooldownTimer <= 0f)
                     {
-                        TriggerSkill(skill, GetPlayerCenter());
-                        skill.cooldownTimer = skill.cooldown;
+                        if (skill.useMouseDirection)
+                        {
+                            skill.isPreparing = true;
+                        }
+                        else
+                        {
+                            TriggerSkill(skill, GetPlayerCenter());
+                            skill.cooldownTimer = skill.cooldown;
+                        }
                     }
                 }
             }
-        }
 
-        foreach (var skill in skills)
-        {
-            if (skill.isPreparing && Input.GetMouseButtonDown(0))
+            foreach (var skill in skills)
             {
-                Vector3? castPos = GetMouseCastPoint(skill.castDistance);
-                if (castPos.HasValue)
+                if (skill.isPreparing && Input.GetMouseButtonDown(0))
                 {
-                    TriggerSkill(skill, castPos.Value);
-                    skill.cooldownTimer = skill.cooldown;
+                    Vector3? castPos = GetMouseCastPoint(skill.castDistance);
+                    if (castPos.HasValue)
+                    {
+                        TriggerSkill(skill, castPos.Value);
+                        skill.cooldownTimer = skill.cooldown;
+                    }
+                    skill.isPreparing = false;
                 }
-                skill.isPreparing = false;
             }
         }
     }
@@ -226,9 +243,49 @@ public class PlayerSkillController : MonoBehaviour
         string n = skill.name.ToLower();
         return n.Contains("shield") || n.Contains("bubble");
     }
+
+    // -------------------------------
+    // ✅ Passive Form Logic
+    // -------------------------------
+    void EnterPassiveForm()
+    {
+        isInPassiveForm = true;
+
+        // เปลี่ยน Material เป็นร่าง passive
+        if (meshRenderer != null && passiveMaterial != null)
+            meshRenderer.material = passiveMaterial;
+
+        // เล่นท่า PassiveForm (ต้องมี State และ Bool ตรงชื่อ)
+        if (animator != null && animator.HasParameter("PassiveForm"))
+        {
+            animator.SetBool("PassiveForm", true);
+        }
+
+        StartCoroutine(ReturnFromPassiveForm());
+    }
+
+    IEnumerator ReturnFromPassiveForm()
+    {
+        yield return new WaitForSeconds(passiveDuration);
+
+        // กลับมาใช้ material ปกติ
+        if (meshRenderer != null && normalMaterial != null)
+            meshRenderer.material = normalMaterial;
+
+        // ปิด PassiveForm และกลับ Idle
+        if (animator != null)
+        {
+            if (animator.HasParameter("PassiveForm"))
+                animator.SetBool("PassiveForm", false);
+
+            animator.CrossFade("Idle", 0.1f);
+        }
+
+        isInPassiveForm = false;
+    }
 }
 
-// Extension สำหรับเช็คพารามิเตอร์ใน Animator
+// ✨ Extension สำหรับเช็ค parameter ใน Animator
 public static class AnimatorExtensions
 {
     public static bool HasParameter(this Animator animator, string name)
